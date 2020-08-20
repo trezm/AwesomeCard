@@ -65,75 +65,79 @@ class CardFrontLayout {
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          cardNumber == null || cardNumber.isEmpty
-                              ? 'XXXX XXXX XXXX XXXX'
-                              : cardNumber,
-                          style: TextStyle(
-                              package: 'awesome_card',
-                              color: textColor,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: "MavenPro",
-                              fontSize: 22),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                    Text(
+                      cardNumber == null || cardNumber.isEmpty
+                          ? 'XXXX XXXX XXXX XXXX'
+                          : cardNumber,
+                      // Here
+                      style: TextStyle(
+                          package: 'awesome_card',
+                          color: textColor,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: "MavenPro",
+                          fontSize: 22),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              "Exp. Date",
-                              style: TextStyle(
-                                  package: 'awesome_card',
-                                  color: textColor,
-                                  fontFamily: "MavenPro",
-                                  fontSize: 15),
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Exp. Date",
+                                  style: TextStyle(
+                                      package: 'awesome_card',
+                                      color: textColor,
+                                      fontFamily: "MavenPro",
+                                      fontSize: 15),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  cardExpiry == null || cardExpiry.isEmpty
+                                      ? "MM/YY"
+                                      : cardExpiry,
+                                  style: TextStyle(
+                                      package: 'awesome_card',
+                                      color: textColor,
+                                      fontWeight: FontWeight.w500,
+                                      fontFamily: "MavenPro",
+                                      fontSize: 16),
+                                ),
+                              ],
                             ),
                             SizedBox(
-                              width: 10,
+                              height: 15,
                             ),
                             Text(
-                              cardExpiry == null || cardExpiry.isEmpty
-                                  ? "MM/YY"
-                                  : cardExpiry,
+                              cardHolderName == null || cardHolderName.isEmpty
+                                  ? "Card Holder"
+                                  : cardHolderName,
                               style: TextStyle(
                                   package: 'awesome_card',
                                   color: textColor,
                                   fontWeight: FontWeight.w500,
                                   fontFamily: "MavenPro",
-                                  fontSize: 16),
+                                  fontSize: 17),
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Text(
-                          cardHolderName == null || cardHolderName.isEmpty
-                              ? "Card Holder"
-                              : cardHolderName,
-                          style: TextStyle(
-                              package: 'awesome_card',
-                              color: textColor,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: "MavenPro",
-                              fontSize: 17),
-                        ),
-
+                        cardTypeIcon
                       ],
-                    ),
-                    cardTypeIcon
+                    )
                   ],
                 ),
               ),
